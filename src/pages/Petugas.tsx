@@ -1,11 +1,9 @@
-import { useEffect } from "react";
+
 const Petugas = () => {
-    useEffect(()=>{
-        console.log("dashboard i loaded")
-    },[])
+    
     return (
         <div>
-            petugas
+            halaman untuk petugas
         </div>
     );
 };
