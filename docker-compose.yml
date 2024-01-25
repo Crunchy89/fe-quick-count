@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  quick-count:
+    image: quick-count:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    container_name: quick-count
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.quickcount.rule=Host(`quick-count.techcode.cloud`)"
+      - "traefik.http.routers.quickcount.entrypoints=web"
+      - "traefik.http.services.quickcount.loadbalancer.server.port=80"
+      - "traefik.docker.network=traefik_webgateway"
+
+    networks:
+      - traefik_webgateway
+
+networks:
+  traefik_webgateway:
+    external: true
