@@ -4,9 +4,11 @@ import {
   cilSpeedometer,
 } from '@coreui/icons'
 import { CNavItem} from '@coreui/react'
+import { CNavLinkProps } from '@coreui/react/dist/components/nav/CNavLink';
+
 
 export interface Nav {
-  component:React.ForwardRefExoticComponent<React.RefAttributes<HTMLLIElement>>
+  component:React.ForwardRefExoticComponent<CNavLinkProps & React.RefAttributes<HTMLLIElement>>
   name:string
   to?:string
   icon?:React.RefAttributes<SVGSVGElement>

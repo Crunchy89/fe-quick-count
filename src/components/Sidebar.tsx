@@ -1,5 +1,4 @@
-import { CNavGroup, CNavItem, CNavTitle,CBadge} from '@coreui/react'
-import { Component } from 'react'
+import { CNavItem} from '@coreui/react'
 
 const Sidebar = () => {
     return (
