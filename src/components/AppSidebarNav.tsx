@@ -1,9 +1,9 @@
 import React from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
-
+import { NavLink } from 'react-router-dom'
+import { Badge, Nav } from 'src/_nav'
 import { CBadge } from '@coreui/react'
 
-const navLink = (name, icon, badge) => {
+const navLink = (name:string, icon:React.RefAttributes<SVGSVGElement>, badge?:Badge) => {
   return (
     <>
       {icon && icon}
@@ -17,7 +17,7 @@ const navLink = (name, icon, badge) => {
   )
 }
 
-const navItem = (item, index) => {
+const navItem = (item:Nav, index:number) => {
   const { component, name, badge, icon, ...rest } = item
   const Component = component
   return (
@@ -29,20 +29,22 @@ const navItem = (item, index) => {
       key={index}
       {...rest}
     >
-      {navLink(name, icon, badge)}
+      {(icon && badge) && 
+        navLink(name, icon, badge)
+      }
     </Component>
   )
 }
 
-const navGroup = (item, index) => {
-  const { component, name, icon, to, ...rest } = item
+const navGroup = (item:Nav, index:number) => {
+  const { component, ...rest } = item
   const Component = component
   return (
     <Component
       idx={String(index)}
       key={index}
-      toggler={navLink(name, icon)}
-      visible={location.pathname.startsWith(to)}
+      // toggler={icon && navLink(name, icon)}
+      // visible={to ? location.pathname.startsWith(to) : ""}
       {...rest}
     >
       {item.items?.map((item, index) =>
@@ -52,7 +54,12 @@ const navGroup = (item, index) => {
   )
 }
 
-export const AppSidebarNav = ({items}) => {
+interface Props {
+  items?:Nav[]
+}
+
+export const AppSidebarNav = (props:Props) => {
+  const {items}=props
   return (
     <React.Fragment>
       {items &&

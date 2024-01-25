@@ -1,20 +1,26 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 
-import routes from 'src/routes'
+import routes, { Routes } from 'src/routes'
 
 import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react'
+
+interface Breadcrumb {
+  pathname:string
+  name:string
+  active:boolean
+}
 
 const AppBreadcrumb = () => {
   const currentLocation = useLocation().pathname
 
-  const getRouteName = (pathname:string, routes:any) => {
+  const getRouteName = (pathname:string, routes:Routes[]) => {
     const currentRoute = routes.find((route) => route.path === pathname)
     return currentRoute ? currentRoute.name : false
   }
 
   const getBreadcrumbs = (location:string) => {
-    const breadcrumbs:any = []
+    const breadcrumbs:Breadcrumb[] = []
     location.split('/').reduce((prev, curr, index, array) => {
       const currentPathname = `${prev}/${curr}`
       const routeName = getRouteName(currentPathname, routes)
@@ -34,7 +40,7 @@ const AppBreadcrumb = () => {
   return (
     <CBreadcrumb className="m-0 ms-2">
       <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
-      {breadcrumbs.map((breadcrumb:any, index:any) => {
+      {breadcrumbs.map((breadcrumb:Breadcrumb, index:number) => {
         return (
           <CBreadcrumbItem
             {...(breadcrumb.active ? { active: true } : { href: breadcrumb.pathname })}
