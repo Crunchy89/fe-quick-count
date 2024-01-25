@@ -26,4 +26,4 @@ RUN pnpm run build
 ENV NODE_ENV=production
 
 # Start the application
-CMD ["pnpm", "run", "serve"]
+CMD ["pnpm", "run", "preview", "--host", "80"]
