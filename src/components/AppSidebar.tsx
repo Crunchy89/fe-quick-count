@@ -4,7 +4,7 @@ import React from 'react'
 import { CSidebar, CSidebarBrand, CSidebarNav, CSidebarToggler } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
-import { AppSidebarNav } from './AppSidebarNav'
+// import { AppSidebarNav } from './AppSidebarNav'
 
 import { logoNegative } from 'src/assets/brand/logo-negative'
 import { sygnet } from 'src/assets/brand/sygnet'
@@ -16,6 +16,7 @@ import 'simplebar/dist/simplebar.min.css'
 import navigation from 'src/_nav'
 import { useAtomValue, useAtom } from 'jotai'
 import { sidebarShow, sidebarUnfoldable } from 'src/store'
+import { AppSidebarNav } from './AppSidebarNav'
 
 const AppSidebar = () => {
   const [unfoldable,setUnfoldable] = useAtom(sidebarUnfoldable)
@@ -41,6 +42,7 @@ const AppSidebar = () => {
       <CSidebarNav>
         <SimpleBar>
           <AppSidebarNav items={navigation} />
+          {/* <Sidebar/> */}
         </SimpleBar>
       </CSidebarNav>
       <CSidebarToggler
