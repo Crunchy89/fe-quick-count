@@ -1,6 +1,3 @@
-// ** React Imports
-import {ReactNode } from 'react'
-
 // ** MUI Components
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -19,7 +16,6 @@ import EyeOutline from 'mdi-material-ui/EyeOutline'
 import EyeOffOutline from 'mdi-material-ui/EyeOffOutline'
 
 // ** Layout Import
-import BlankLayout from '../@core/layouts/BlankLayout'
 import LoginModel from '../view_model/LoginModel'
 
 // ** Styled Components
@@ -80,7 +76,5 @@ const LoginPage = () => {
       </Box>
     )
 }
-
-LoginPage.getLayout = (page: ReactNode) => <BlankLayout>{page}</BlankLayout>
 
 export default LoginPage
