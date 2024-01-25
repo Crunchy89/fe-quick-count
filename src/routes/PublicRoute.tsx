@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { login } from '../store';
+import { login } from 'src/store';
 import { useAtomValue } from 'jotai';
 
 const PublicRoute = () => {

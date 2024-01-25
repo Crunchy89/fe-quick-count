@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios';
 import { useSetAtom } from 'jotai';
-import { login } from '../store';
-import { Login } from '../model/login';
+import { login } from 'src/store';
+import { Login } from 'src/model/login';
 
 interface Res<T> {
   code: number;

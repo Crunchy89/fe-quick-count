@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import PublicRoute from './routes/PublicRoute';
-import Login from './pages/Login';
-import PrivateRoute from './routes/PrivateRoute';
-import AdminRoute from './routes/AdminRoute';
-import PetugasRoute from './routes/PetugasRoute';
-import Dashboard from './pages/Dashboard';
-import Petugas from './pages/Petugas';
+import PublicRoute from 'src/routes/PublicRoute';
+import Login from 'pages/Login';
+import PrivateRoute from 'src/routes/PrivateRoute';
+import AdminRoute from 'src/routes/AdminRoute';
+import PetugasRoute from 'src/routes/PetugasRoute';
+import Dashboard from 'pages/Dashboard';
+import Petugas from 'pages/Petugas';
 
 const App = () => {
 

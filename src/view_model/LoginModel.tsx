@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, MouseEvent, useState } from 'react'
-import { LoginAction, LoginPage } from '../model/login';
-import Service from "../service/Service"
+import { LoginAction, LoginPage } from 'src/model/login';
+import Service from "service/Service"
 
 const LoginModel = () => {
     const [username,setUsername] = useState<string>("")

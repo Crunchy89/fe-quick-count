@@ -16,7 +16,7 @@ import EyeOutline from 'mdi-material-ui/EyeOutline'
 import EyeOffOutline from 'mdi-material-ui/EyeOffOutline'
 
 // ** Layout Import
-import LoginModel from '../view_model/LoginModel'
+import LoginModel from 'src/view_model/LoginModel'
 
 // ** Styled Components
 const Card = styled(MuiCard)<CardProps>(({ theme }) => ({
