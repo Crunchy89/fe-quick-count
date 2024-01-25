@@ -10,6 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@coreui/chartjs": "^3.1.2",
+    "@coreui/coreui": "^4.3.2",
+    "@coreui/icons": "^3.0.1",
+    "@coreui/icons-react": "^2.2.1",
+    "@coreui/react": "^4.11.1",
+    "@coreui/react-chartjs": "^2.1.3",
+    "@coreui/utils": "^2.0.2",
     "@emotion/cache": "^11.6.0",
     "@emotion/react": "^11.7.0",
     "@emotion/server": "^11.4.0",
@@ -20,6 +27,9 @@
     "@popperjs/core": "^2.11.2",
     "axios": "^1.6.5",
     "centrifuge": "^5.0.1",
+    "chart.js": "^4.4.1",
+    "classnames": "^2.5.1",
+    "core-js": "^3.35.1",
     "jotai": "^2.6.3",
     "mdi-material-ui": "^7.1.0",
     "react": "^18.2.0",
@@ -29,7 +39,9 @@
     "react-imported-component": "^6.5.3",
     "react-perfect-scrollbar": "^1.5.8",
     "react-popper": "^2.2.5",
-    "react-router-dom": "^6.21.3"
+    "react-router-dom": "^6.21.3",
+    "simplebar": "^6.2.5",
+    "simplebar-react": "^3.2.4"
   },
   "devDependencies": {
     "@types/node": "16.11.11",
@@ -44,6 +56,8 @@
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "prop-types": "^15.8.1",
+    "sass": "^1.70.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",
     "vite-plugin-pwa": "^0.17.4",
