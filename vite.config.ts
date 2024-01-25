@@ -14,4 +14,7 @@ export default defineConfig({
       { find: 'service', replacement: path.resolve(__dirname, 'src/service') },
     ],
   },
+  preview:{
+    port:80
+  }
 })
