@@ -12,7 +12,7 @@ import {
 import CIcon from '@coreui/icons-react'
 import {  cilMenu } from '@coreui/icons'
 
-import { AppHeaderDropdown } from './header/index'
+import AppHeaderDropdown from 'src/components/header/AppHeaderDropdown'
 import { logo } from 'src/assets/brand/logo'
 import { useAtom } from 'jotai'
 import { sidebarShow } from 'src/store'

@@ -1,17 +1,22 @@
-import { AppContent, AppSidebar, AppHeader } from 'src/components/index'
+import { Outlet } from 'react-router-dom'
+import AppHeader from 'src/layout/AppHeader'
+import { CContainer } from '@coreui/react'
+import AppSidebar from "src/layout/AppSidebar"
+
 
 const DashboardLayout = () => {
   return (
-    <div>
+    <>
       <AppSidebar />
       <div className="wrapper d-flex flex-column min-vh-100 bg-light">
         <AppHeader />
         <div className="body flex-grow-1 px-3">
-          <AppContent />
+        <CContainer lg>
+          <Outlet/>
+        </CContainer>
         </div>
-        {/* <AppFooter /> */}
       </div>
-    </div>
+    </>
   )
 }
 

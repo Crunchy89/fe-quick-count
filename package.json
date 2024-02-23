@@ -41,7 +41,9 @@
     "react-popper": "^2.2.5",
     "react-router-dom": "^6.21.3",
     "simplebar": "^6.2.5",
-    "simplebar-react": "^3.2.4"
+    "simplebar-react": "^3.2.4",
+    "single-spa-react": "^6.0.1",
+    "vite-plugin-single-spa": "^0.6.0"
   },
   "devDependencies": {
     "@types/node": "16.11.11",
