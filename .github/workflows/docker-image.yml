@@ -1,0 +1,42 @@
+name: Deploy to Dev
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Deploy to Dev"
+        required: true
+        default: "master"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up SSH (Secure Key Storage)
+        uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }} # Use dedicated deploy key
+
+      - name: Check SSH connection to VPS (Optional)
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP }} 'echo "Connection successful"'
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t ${{ secrets.IMAGE_NAME }}:${{ secrets.IMAGE_TAG }} .
+          docker save -o image.tar ${{ secrets.IMAGE_NAME }}:${{ secrets.IMAGE_TAG }}
+          scp -i ~/code/ubersnap-honcho-public image.tar ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP }}:${{ secrets.PATH }}
+        env:
+          DOCKER_BUILDKIT: 1
+
+      - name: Load Docker image on VPS
+        run: |
+          ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP }} "docker load -i ${{ secrets.SSH_IP }}:${{ secrets.PATH }}/image.tar"
+
+      - name: Deploy using Docker Compose
+        run: |
+          ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_IP }} "cd ${{ secrets.PATH }} && docker compose down && docker compose up -d && rm -rf image.tar"
